@@ -11,7 +11,7 @@ const { readFile } = fsPromises
 
 let postcssRoot: Root
 
-export default function tailwind(opts?: PluginOptions): Plugin {
+const tailwind = (opts?: PluginOptions): Plugin => {
 
   const options = _buildOptions(opts)
 
@@ -50,7 +50,7 @@ export default function tailwind(opts?: PluginOptions): Plugin {
 
 }
 
-function _buildOptions(opts?: PluginOptions): PluginOptions {
+const _buildOptions = (opts?: PluginOptions): PluginOptions => {
   const defaults: PluginOptions = {
     tailwind: tailwindcss(),
     inputFile: path.join(__dirname, '/app.css'),
@@ -58,3 +58,5 @@ function _buildOptions(opts?: PluginOptions): PluginOptions {
   }
   return Object.assign({}, defaults, opts)
 }
+
+export default tailwind
