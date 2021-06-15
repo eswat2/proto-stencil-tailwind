@@ -1,0 +1,6 @@
+.skip
+cSpell.json
+rollup.config.js
+src
+test
+tsconfig.json
