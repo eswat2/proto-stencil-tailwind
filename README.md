@@ -16,7 +16,11 @@ yarn add --dev rollup
 yarn add --dev tailwindcss
 ```
 
-Next, within the project's `stencil.config.js` file, import the plugin and add it to the config's plugins config:
+Next, within the project's `stencil.config.js` file:
+
+1. import the plugin 
+2. update the plugins config
+3. update the reloadStrategy 
 
 ### stencil.config.ts
 
@@ -27,19 +31,13 @@ import tailwind from 'proto-stencil-tailwind'
 export const config: Config = {
   plugins: [
     tailwind()
-  ]
-}
-```
-
-Note, hot module reloading (`hmr`) is not yet supported. For local development, you'll need to update `reloadStratgy` to use the `pageReload` option:
-
-```ts
-export const config: Config = {
+  ],
   devServer: {
     reloadStrategy: 'pageReload'
   }
 }
 ```
+
 
 ### Create your Tailwind config file (optional)
 
@@ -73,7 +71,8 @@ The following plugin options may be configured:
 
 ### stencil.config.ts
 
-```js
+```ts
+import { Config } from '@stencil/core'
 import tailwindcss from 'tailwindcss'
 
 export const config: Config = {
@@ -90,3 +89,57 @@ export const config: Config = {
 * `tailwind`: **(optional)** your own configuration file and version of TailwindCSS to be used.
 * `inputFile`: **(optional)** a stylesheet filepath to be used in place of the default.
 * `includeTailwindCss`: **(optional)** include global `tailwind.css` in the bundle (default: `true`)
+
+> NOTE:  adding an inputFile will give you the ability to support the creation of [tailwind _components_](https://tailwindcss.com/docs/extracting-components#extracting-component-classes-with-apply)...
+
+
+## Using the inputFile option
+
+
+##### 1. stencil.config.ts
+
+```ts
+import { Config } from '@stencil/core'
+import tailwind from 'proto-stencil-tailwind'
+
+export const config: Config = {
+  plugins: [
+    tailwind({
+      inputFile: './src/styles/app.css'
+    })
+  ],
+  devServer: {
+    reloadStrategy: 'pageReload'
+  }
+}
+```
+
+
+##### 2. src/styles/app.css
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-blue {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+}
+```
+
+This simple combination of changes creates a tailwind _component_ class named **btn-blue** which you could use in your app instead of typing:
+
+_"py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"_  
+
+You can read more about this approach here:
+
+- [Extracting component classes with @apply](https://tailwindcss.com/docs/extracting-components#extracting-component-classes-with-apply).
+
+
+## References
+
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Building a Scalable CSS Architecture](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) - _algolia_
+
