@@ -1,6 +1,6 @@
 {
   "name": "@eswat2/stencil-tailwind",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A TailwindCSS Plugin for Stencil",
   "main": "dist/index.js",
   "directories": {
