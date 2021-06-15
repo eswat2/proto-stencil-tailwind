@@ -1,31 +1,20 @@
-# stencil-tailwind
+# proto-stencil-tailwind
 
-This package is used in order to integrate with [tailwindcss](https://tailwindcss.com/docs/installation/). It provides
+This package is used in order to integrate with the 2.x release of [tailwindcss](https://tailwindcss.com/). It provides
 simple functionality for supporting a [utility-first](https://tailwindcss.com/docs/utility-first) workflow within the Shadow DOM.
 
-Note, this plugin specificially adds support for _inline utilities_ (idiomatic Tailwind). If you find that this is not a
-requirement for your project you can opt to include Tailwind via [`@stencil/postcss`](https://github.com/ionic-team/stencil-postcss). This will allow you to use the
-[`@apply`](https://tailwindcss.com/docs/functions-and-directives/#apply) directive and [`theme()`](https://tailwindcss.com/docs/functions-and-directives/#theme) function within your component's stylesheet. You can get started with the following configuration:
-
-```ts
-import { Config } from '@stencil/core'
-import postcss from '@stencil/postcss'
-import tailwind from 'tailwindcss'
-
-export const config: Config = {
-  plugins: [
-    postcss({
-      plugins: [ tailwind() ]
-    })
-  ]
-}
-```
+> NOTE: this plugin specificially adds support for _inline utilities..._ (idiomatic Tailwind)
 
 ## Installation
 
-First, npm install within the project:
+First, yarn install within the project:
 
-`npm install stencil-tailwind --save-dev`
+```
+yarn add --dev proto-stencil-tailwind
+yarn add --dev postcss 
+yarn add --dev rollup
+yarn add --dev tailwindcss
+```
 
 Next, within the project's `stencil.config.js` file, import the plugin and add it to the config's plugins config:
 
@@ -33,7 +22,7 @@ Next, within the project's `stencil.config.js` file, import the plugin and add i
 
 ```ts
 import { Config } from '@stencil/core'
-import tailwind from 'stencil-tailwind'
+import tailwind from 'proto-stencil-tailwind'
 
 export const config: Config = {
   plugins: [
@@ -54,7 +43,7 @@ export const config: Config = {
 
 ### Create your Tailwind config file (optional)
 
-While Tailwind provides a sensible default configuration, it is often desirable to further customize your theme. This default configuration can be used as a starting point for such customizations. To customize your Tailwind installation, you will first need to generate a config file for your project using the included Tailwind CLI utility when you install the `stencil-tailwind` npm package.
+While Tailwind provides a sensible default configuration, it is often desirable to further customize your theme. This default configuration can be used as a starting point for such customizations. To customize your Tailwind installation, you will first need to generate a config file for your project using the included Tailwind CLI utility when you install the `proto-stencil-tailwind` npm package.
 
 `npx tailwindcss init`
 
@@ -77,74 +66,6 @@ class MyComponent {
   }
 }
 ```
-
-### @Styles
-
-Utilities can be conditionally applied using the `Styles` decorator. This decorator provides a simple wrapper for the
-[`classnames`](https://www.npmjs.com/package/classnames) npm package.
-
-```jsx
-class MyComponent {
-  render() {
-    return (
-      <button class={this.classNames()}>
-        Hello World
-      </button>
-    );
-  }
-
-  @Styles()
-  private classNames = () => ({
-    'p-4': true,
-    'shadow hover:shadow-md': this.floating,
-    'rounded-full': this.round
-  })
-}
-```
-
-### Directives
-
-Use the [`@apply`](https://tailwindcss.com/docs/functions-and-directives/#apply) directive to inline any existing utility classes into your external component stylesheet files. This is useful when you want to apply utilities to the shadow host.
-
-```css
-:host {
-  @apply font-bold py-2 px-4 rounded;
-}
-```
-
-### DSL (advanced)
-
-A simple, declarative, runtime DSL can be used to provide sugar for conditionally applied utilties based on a
-[Prop](https://stenciljs.com/docs/properties) value. All classes will be included in the shadow tree at build time.
-
-```tsx
-class MyComponent {
-
-  /** specify the size of the button, defaults to m */
-  @Prop({ reflect: true }) size: "s" | "m" | "l" = "m";
-
-  render() {
-    return (
-      <button class="<px-4 py-3 text-sm> l<px-6 py-4 text-lg> s<px-3 py-2 text-xs>">
-        Hello World
-      </button>
-    );
-  }
-
-}
-```
-
-The DSL is described by the following grammer:
-
-*class-container* → *prefix* < *class-list* >
-
-*class-list* → *class-list class*
-
-*class-list* → *class*
-
-*class* → **string**
-
-*prefix* → **string** | ''
 
 ## Options
 
