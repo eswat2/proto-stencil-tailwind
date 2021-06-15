@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const CalciteButton = class {
 
   render() {
-    const iconEl = (h("calcite-icon", { class: this.hasText ? (this.iconPosition === "end" ? "ml-2" : "mr-2") : "", icon: this.icon, scale: iconScale }));
+    (h("calcite-icon", { class: this.hasText ? (this.iconPosition === "end" ? "ml-2" : "mr-2") : "", icon: this.icon, scale: iconScale }));
   }
 
 };
