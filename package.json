@@ -15,7 +15,7 @@
     "test": "ava",
     "debug": "export DEBUG=* DEBUG_COLORS=true FORCE_COLOR=1 && npm run build && ava",
     "predeploy": "yarn build",
-    "deploy": "yarn publish --patch"
+    "deploy": "npm publish --dry-run"
   },
   "author": "",
   "license": "MIT",
