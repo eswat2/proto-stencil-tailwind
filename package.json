@@ -1,6 +1,6 @@
 {
-  "name": "@eswat2/stencil-tailwind",
-  "version": "0.0.6",
+  "name": "testing-stencil-tailwind",
+  "version": "0.0.7",
   "description": "A TailwindCSS Plugin for Stencil",
   "main": "dist/index.js",
   "directories": {
@@ -15,7 +15,7 @@
     "test": "ava",
     "debug": "export DEBUG=* DEBUG_COLORS=true FORCE_COLOR=1 && npm run build && ava",
     "predeploy": "yarn build",
-    "deploy": "np patch --preview"
+    "deploy": "yarn publish --patch"
   },
   "author": "",
   "license": "MIT",
