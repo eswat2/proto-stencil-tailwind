@@ -178,8 +178,6 @@ You can use this to breakup the long class strings and it also gives you a way t
           : 'bg-green-200 border-green-600',
       )}
     >
-	...
-	</div>
 ```
 
 The plugin will correctly find all of the tailwind classes when using this approach and make them available in the associated component root.  You can find the article about this _trick_ in the references below.
