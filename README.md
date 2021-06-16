@@ -137,6 +137,51 @@ You can read more about this approach here:
 
 - [Extracting component classes with @apply](https://tailwindcss.com/docs/extracting-components#extracting-component-classes-with-apply).
 
+## tw utility
+
+I found a handy utility that works well with this plugin:
+
+```ts
+const tw = (...classes: (false | null | undefined | string)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
+
+export { tw };
+export default tw;
+```
+
+This `tw` utility was developed for React, but it works just as well for Stencil and this plugin.
+
+For example:
+
+```
+    <Logo
+      className={tw(
+        'relative',
+        'w-full h-auto',
+        'mt-2 mb-4',
+        'text-blue-600 fill-current'
+      )}
+    />
+```
+
+You can use this to breakup the long class strings and it also gives you a way to provide conditional styling using ternary expressions:
+
+```
+      <div
+        class={tw(
+          'flex align-middle',
+          'rounded-lg p-4 mb-1',
+          'border border-solid',
+          isExotic(group)
+            ? 'bg-gray-300 border-gray-600'
+            : 'bg-green-200 border-green-600',
+        )}
+      >
+      ...
+```
+
+The plugin will correctly find all of the tailwind classes when using this approach and make them available in the associated component root.  You can find the article about this _trick_ in the references below.
 
 ## Credits
 
@@ -149,3 +194,4 @@ Thanks goes to **Jack Rowlingson** and all of the others who contributed to the 
 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Building a Scalable CSS Architecture](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) - _algolia_
+- [Simple Trick to Clean Up Tailwind CSS in React](https://www.skies.dev/tailwind-react-trick) - _the tw utility_
