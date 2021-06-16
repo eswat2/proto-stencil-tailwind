@@ -154,7 +154,7 @@ This `tw` utility was developed for React, but it works just as well for Stencil
 
 For example:
 
-```
+```jsx
     <Logo
       className={tw(
         'relative',
@@ -167,18 +167,19 @@ For example:
 
 You can use this to breakup the long class strings and it also gives you a way to provide conditional styling using ternary expressions:
 
-```
-      <div
-        class={tw(
-          'flex align-middle',
-          'rounded-lg p-4 mb-1',
-          'border border-solid',
-          isExotic(group)
-            ? 'bg-gray-300 border-gray-600'
-            : 'bg-green-200 border-green-600',
-        )}
-      >
-      ...
+```jsx
+    <div
+      class={tw(
+        'flex align-middle',
+        'rounded-lg p-4 mb-1',
+        'border border-solid',
+        isExotic(group)
+          ? 'bg-gray-300 border-gray-600'
+          : 'bg-green-200 border-green-600',
+      )}
+    >
+	...
+	</div>
 ```
 
 The plugin will correctly find all of the tailwind classes when using this approach and make them available in the associated component root.  You can find the article about this _trick_ in the references below.
