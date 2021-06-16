@@ -1,7 +1,7 @@
 {
   "name": "proto-stencil-tailwind",
   "version": "0.0.11",
-  "description": "A TailwindCSS Plugin for Stencil",
+  "description": "A TailwindCSS 2.x Plugin for Stencil... [ Prototype ]",
   "main": "dist/index.js",
   "directories": {
     "test": "test"
@@ -61,7 +61,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrowlingson/stencil-tailwind.git"
+    "url": "git+https://github.com/eswat2/stencil-tailwind.git"
   },
   "module": "dist/index.es.js",
   "types": "types/index.d.ts"

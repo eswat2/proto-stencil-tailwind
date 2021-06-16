@@ -138,8 +138,14 @@ You can read more about this approach here:
 - [Extracting component classes with @apply](https://tailwindcss.com/docs/extracting-components#extracting-component-classes-with-apply).
 
 
+## Credits
+
+Thanks goes to **Jack Rowlingson** and all of the others who contributed to the Tailwind 1.x version of this plugin!!
+
+- [stencil-tailwind](https://github.com/jrowlingson/stencil-tailwind) - _the original plugin_
+
+
 ## References
 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Building a Scalable CSS Architecture](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) - _algolia_
-
