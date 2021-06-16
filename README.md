@@ -182,6 +182,14 @@ You can use this to breakup the long class strings and it also gives you a way t
 
 The plugin will correctly find all of the tailwind classes when using this approach and make them available in the associated component root.  You can find the article about this _trick_ in the references below.
 
+## VSCode
+
+I found this plugin for VSCode useful when working with Tailwind:
+
+[![plug](https://raw.githubusercontent.com/bradlc/vscode-tailwindcss/master/packages/vscode-tailwindcss/.github/banner-dark.png)](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+It's not perfect, but for the traditonal Tailwind workflow, it works pretty well (YMMV).
+
 ## Credits
 
 Thanks goes to **Jack Rowlingson** and all of the others who contributed to the Tailwind 1.x version of this plugin!!
@@ -194,3 +202,4 @@ Thanks goes to **Jack Rowlingson** and all of the others who contributed to the 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Building a Scalable CSS Architecture](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) - _algolia_
 - [Simple Trick to Clean Up Tailwind CSS in React](https://www.skies.dev/tailwind-react-trick) - _the tw utility_
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - _VSCode plugin_
