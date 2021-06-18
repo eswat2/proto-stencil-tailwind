@@ -1,4 +1,4 @@
-import postcss from 'postcss';
+import type * as postcss from 'postcss'
 
 export { Plugin } from 'rollup'
 
