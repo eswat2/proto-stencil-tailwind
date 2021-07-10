@@ -38,7 +38,7 @@
     "@types/acorn": "4.0.6",
     "@types/debug": "4.1.6",
     "@types/node": "16.3.1",
-    "autoprefixer": "10.2.6",
+    "autoprefixer": "10.3.0",
     "ava": "3.15.0",
     "rollup": "2.53.0",
     "ts-node": "10.1.0",
