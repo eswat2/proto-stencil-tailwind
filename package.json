@@ -1,6 +1,6 @@
 {
   "name": "proto-stencil-tailwind",
-  "version": "0.0.48",
+  "version": "0.0.49",
   "description": "A TailwindCSS 2.x Plugin for Stencil... [ Prototype ]",
   "main": "dist/index.js",
   "directories": {
