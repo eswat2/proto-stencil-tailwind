@@ -22,7 +22,7 @@
   "peerDependencies": {
     "postcss": "8.3.8",
     "rollup": "2.57.0",
-    "tailwindcss": "2.2.15",
+    "tailwindcss": "2.2.16",
     "typescript": "4.4.3"
   },
   "dependencies": {
@@ -31,14 +31,14 @@
     "debug": "4.3.2",
     "magic-string": "0.25.7",
     "postcss": "8.3.8",
-    "tailwindcss": "2.2.15"
+    "tailwindcss": "2.2.16"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "8.2.5",
     "@types/acorn": "4.0.6",
     "@types/debug": "4.1.7",
     "@types/node": "16.10.1",
-    "autoprefixer": "10.3.5",
+    "autoprefixer": "10.3.6",
     "ava": "3.15.0",
     "rollup": "2.57.0",
     "ts-node": "10.2.1",
